@@ -1,5 +1,5 @@
 # libifaddr
-Get network interface addresses with easy and simple interface in #python
+Get network interface addresses with easy and simple interface in Python/Pyrex
 
 ## Function reference
 
@@ -57,3 +57,8 @@ Get network interface addresses with easy and simple interface in #python
     40:62:31:8:3a:d4
     233345710645824
     40:62:31:8:3a:d4
+
+## About "netifaces"
+I am aware of its existence.
+"libifaddr" was created mostly for internal use. I found "netifaces" too bloated for my project.
+It can be also used for educational purposes due to its extreme simplicity and advanced usage of Pyrex language features.
