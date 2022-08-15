@@ -2,7 +2,7 @@
 
 from libc.stdint cimport *
 
-# ==== Extrernals
+# ==== Externals
 
 # == Ethernet related
 
