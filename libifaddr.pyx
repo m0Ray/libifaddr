@@ -51,7 +51,7 @@ cpdef str ether_ntoa(uint64_t addr):
     :param mask: Append mask. False by default
     :return: Address string list
 """
-cpdef list ifaddr(str iface="", int16_t family=-1, bint mask=False):
+cpdef ifaddr(str iface="", int16_t family=-1, bint mask=False):
 
     cdef list result = []
     cdef bint filter_iface = len(iface)>0

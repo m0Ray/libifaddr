@@ -76,4 +76,4 @@ cdef extern from "<ifaddrs.h>":
 
 cpdef uint64_t ether_aton(str asc)
 cpdef str ether_ntoa(uint64_t addr)
-cpdef list ifaddr(str iface=*, int16_t family=*, bint mask=*)
+cpdef ifaddr(str iface=*, int16_t family=*, bint mask=*)
