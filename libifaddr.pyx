@@ -25,7 +25,7 @@ cpdef uint64_t ether_aton(str asc):
     return result
 
 """
-    Get "XX:XX:XX:XX:XX:XX" formatted string representation of integer ethernet address.
+    Get "XX:XX:XX:XX:XX:XX" formatted string representation from 64-bit integer ethernet address.
 
     :param addr: 64-bit integer representation.
     :return: Ethernet address string.

@@ -1,7 +1,4 @@
 import setuptools
-import sys
-import os
-import subprocess
 
 from Cython.Build import cythonize
 
