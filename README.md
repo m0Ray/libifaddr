@@ -7,7 +7,7 @@ Get network interface addresses with easy and simple interface
         Retrieve interface addresses.
 
         :param iface: Interface name. Retrieve all interfaces by default.
-        :param family: Address family. Compatible with socket.AF_* constants. Retrieveas all families by default.
+        :param family: Address family. Compatible with socket.AF_* constants. All families by default.
         :param mask: Append mask. False by default
         :return: Address string list
     """
@@ -17,10 +17,10 @@ Get network interface addresses with easy and simple interface
     """
         Get 64-bit integer representation of "XX:XX:XX:XX:XX:XX" formatted string of ethernet address.
 
-        :param addr: Ethernet address string.
+        :param asc: Ethernet address string.
         :return: 64-bit integer representation.
     """
-    ether_aton( addr:str ):int
+    ether_aton( asc:str ):int
 
 
     """
@@ -37,17 +37,17 @@ Get network interface addresses with easy and simple interface
     from libifaddr import ifaddr, ether_ntoa, ether_aton
     import socket
 
-    print( ifaddr() )                                            # Print all addresses for all interfaces
-    print( ifaddr("enp4s0") )                                    # Print all addresses for enp4s0 interface
-    print( ifaddr("enp4s0", socket.AF_INET, True) )              # Print all IPv4 addresses with masks for enp4s0 interface
+    print( ifaddr() )                                # Print all addresses for all interfaces
+    print( ifaddr("enp4s0") )                        # Print all addresses for enp4s0 interface
+    print( ifaddr("enp4s0", socket.AF_INET, True) )  # Print all IPv4 addresses with masks
 
     MAC = ifaddr("enp4s0", socket.AF_PACKET)[0]
-    print( MAC )                                                 # Print MAC address of enp4s0 interface
+    print( MAC )                                     # Print MAC address of enp4s0 interface
 
     intMAC = ether_aton(MAC)
-    print( intMAC )                                              # Print integer (64-bit) representation of the above MAC address
+    print( intMAC )                                  # Print integer (64-bit) representation of the above MAC address
 
-    print( ether_ntoa(intMAC) )                                  # Restore string representation from integer
+    print( ether_ntoa(intMAC) )                      # Restore string representation from integer
 
 ## Example code output
 

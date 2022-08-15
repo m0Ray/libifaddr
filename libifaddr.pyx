@@ -4,6 +4,13 @@ from libc.string cimport memset
 from cpython.mem cimport PyMem_Malloc, PyMem_Free
 import socket
 
+
+"""
+    Get 64-bit integer representation of "XX:XX:XX:XX:XX:XX" formatted string of ethernet address.
+
+    :param asc: Ethernet address string.
+    :return: 64-bit integer representation.
+"""
 cpdef uint64_t ether_aton(str asc):
 
     cdef uint64_t result
@@ -17,6 +24,12 @@ cpdef uint64_t ether_aton(str asc):
 
     return result
 
+"""
+    Get "XX:XX:XX:XX:XX:XX" formatted string representation of integer ethernet address.
+
+    :param addr: 64-bit integer representation.
+    :return: Ethernet address string.
+"""
 cpdef str ether_ntoa(uint64_t addr):
 
     cdef bytes result
@@ -31,6 +44,14 @@ cpdef str ether_ntoa(uint64_t addr):
 
     return result.decode("UTF-8")
 
+"""
+    Retrieve interface addresses.
+
+    :param iface: Interface name. Retrieve all interfaces by default.
+    :param family: Address family. Compatible with socket.AF_* constants. All families by default.
+    :param mask: Append mask. False by default
+    :return: Address string list
+"""
 cpdef list ifaddr(str iface="", int16_t family=-1, bint mask=False):
 
     cdef bint filter_iface = len(iface)>0
