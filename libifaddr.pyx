@@ -1,4 +1,3 @@
-from libc.string cimport memset
 from cpython.mem cimport PyMem_Malloc, PyMem_Free
 
 import socket
@@ -12,8 +11,7 @@ import socket
 """
 cpdef uint64_t ether_aton(str asc):
 
-    cdef uint64_t result
-    memset(&result, 0, 8)
+    cdef uint64_t result = 0
 
     cdef bytes bstr = asc.encode("UTF-8")
 
