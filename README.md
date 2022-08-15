@@ -1,5 +1,5 @@
 # libifaddr
-Get network interface addresses with easy and simple interface
+Get network interface addresses with easy and simple interface in #python
 
 ## Function reference
 
