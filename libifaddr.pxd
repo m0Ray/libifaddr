@@ -2,6 +2,10 @@
 
 from libc.stdint cimport *
 
+# ==== Extrernals
+
+# == Ethernet related
+
 cdef extern from "<linux/if_ether.h>":
 
     enum:
@@ -12,16 +16,23 @@ cdef extern from "<net/ethernet.h>":
     cdef struct ether_addr:
         uint8_t ether_addr_octet[ETH_ALEN]
 
-cdef extern from "<netinet/in.h>":
+cdef extern from "<linux/if_packet.h>":
 
-    enum:
-        INET_ADDRSTRLEN
-        INET6_ADDRSTRLEN
+    cdef struct sockaddr_ll:
+        uint8_t sll_addr[8]
 
 cdef extern from "<netinet/ether.h>":
 
     char *ether_ntoa_r(const ether_addr *addr, char *buf)
     ether_addr *ether_aton_r(const char *asc, ether_addr *addr)
+
+# == INET/INET6 related
+
+cdef extern from "<netinet/in.h>":
+
+    enum:
+        INET_ADDRSTRLEN
+        INET6_ADDRSTRLEN
 
 cdef extern from "<sys/socket.h>":
 
@@ -44,10 +55,7 @@ cdef extern from "<arpa/inet.h>":
 
     const char *inet_ntop(int af, const void *src, char *dst, uint32_t size)
 
-cdef extern from "<linux/if_packet.h>":
-
-    cdef struct sockaddr_ll:
-        uint8_t sll_addr[8]
+# == ifaddrs related
 
 cdef extern from "<ifaddrs.h>":
 
@@ -63,6 +71,8 @@ cdef extern from "<ifaddrs.h>":
 
     int getifaddrs(ifaddrs **ifap)
     void freeifaddrs(ifaddrs *ifa)
+
+# ==== Module functions
 
 cpdef uint64_t ether_aton(str asc)
 cpdef str ether_ntoa(uint64_t addr)

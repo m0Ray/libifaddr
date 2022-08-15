@@ -1,7 +1,6 @@
-# cython: language_level=3
-
 from libc.string cimport memset
 from cpython.mem cimport PyMem_Malloc, PyMem_Free
+
 import socket
 
 
