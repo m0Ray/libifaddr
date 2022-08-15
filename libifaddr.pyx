@@ -49,7 +49,7 @@ cpdef str ether_ntoa(uint64_t addr):
     :param iface: Interface name. Retrieve all interfaces by default.
     :param family: Address family. Compatible with socket.AF_* constants. All families by default.
     :param mask: Append mask. False by default
-    :return: Address string list
+    :return: List of strings or None if system call fails.
 """
 cpdef ifaddr(str iface="", int16_t family=-1, bint mask=False):
 
