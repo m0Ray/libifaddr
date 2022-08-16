@@ -31,7 +31,7 @@ cpdef str ether_ntoa(uint64_t addr):
 
     cdef bytes result
 
-    cdef char *cstr = <char *>PyMem_Malloc(24)
+    cdef char *cstr = <char *>PyMem_Malloc(ETH_ALEN*3)
 
     ether_ntoa_r(<ether_addr *>&addr, cstr)
 
