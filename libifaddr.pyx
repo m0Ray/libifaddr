@@ -3,13 +3,13 @@ from cpython.mem cimport PyMem_Malloc, PyMem_Free
 import socket
 
 
-"""
+cpdef uint64_t ether_aton(str asc):
+    """
     Get 64-bit integer representation of "XX:XX:XX:XX:XX:XX" formatted string of ethernet address.
 
     :param asc: Ethernet address string.
     :return: 64-bit integer representation.
-"""
-cpdef uint64_t ether_aton(str asc):
+    """
 
     cdef uint64_t result = 0
 
@@ -21,13 +21,13 @@ cpdef uint64_t ether_aton(str asc):
 
     return result
 
-"""
+cpdef str ether_ntoa(uint64_t addr):
+    """
     Get "XX:XX:XX:XX:XX:XX" formatted string representation from 64-bit integer ethernet address.
 
     :param addr: 64-bit integer representation.
     :return: Ethernet address string.
-"""
-cpdef str ether_ntoa(uint64_t addr):
+    """
 
     cdef bytes result
 
@@ -41,15 +41,15 @@ cpdef str ether_ntoa(uint64_t addr):
 
     return result.decode("UTF-8")
 
-"""
+cpdef ifaddr(str iface="", int16_t family=-1, bint mask=False):
+    """
     Retrieve interface addresses.
 
     :param iface: Interface name. Retrieve all interfaces by default.
     :param family: Address family. Compatible with socket.AF_* constants. All families by default.
     :param mask: Append mask. False by default
     :return: List of strings or None if system call fails.
-"""
-cpdef ifaddr(str iface="", int16_t family=-1, bint mask=False):
+    """
 
     cdef list result = []
     cdef bint filter_iface = len(iface)>0
