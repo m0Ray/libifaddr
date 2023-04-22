@@ -3,6 +3,7 @@ Get network interface addresses with easy and simple interface in Python/Pyrex
 
 ## Function reference
 
+    ifaddr( iface:str, family:int, mask:bool ):list
     """
         Retrieve interface addresses.
 
@@ -11,25 +12,24 @@ Get network interface addresses with easy and simple interface in Python/Pyrex
         :param mask: Append mask. False by default
         :return: List of strings or None if system call fails.
     """
-    ifaddr( iface:str, family:int, mask:bool ):list
 
 
+    ether_aton( asc:str ):int
     """
         Get 64-bit integer representation of "XX:XX:XX:XX:XX:XX" formatted string of ethernet address.
 
         :param asc: Ethernet address string.
         :return: 64-bit integer representation.
     """
-    ether_aton( asc:str ):int
 
 
+    ether_ntoa( addr:int ):str
     """
         Get "XX:XX:XX:XX:XX:XX" formatted string representation from 64-bit integer ethernet address.
 
         :param addr: 64-bit integer representation.
         :return: Ethernet address string.
     """
-    ether_ntoa( addr:int ):str
 
 
 ## Example code
