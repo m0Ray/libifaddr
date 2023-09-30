@@ -1,5 +1,5 @@
 # libifaddr
-Get network interface addresses with easy and simple interface in Python/Pyrex
+Get network interface addresses with easy and simple interface in Python/Cython
 
 ## Function reference
 
